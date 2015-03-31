@@ -14,8 +14,7 @@ public class AccountDb {
     private Map<Student, List<BankAccountProxy>> acc = new HashMap<Student, List<BankAccountProxy>>();
 
     public BankAccountProxy createAccount(Student owner, BankAccountProxy.TYPE type) {
-        BankAccount realAccount = new BankAccount(owner, type);
-        BankAccountProxy proxyAccount = new BankAccountProxy(realAccount);
+        BankAccountProxy proxyAccount = new BankAccountProxy(owner, type);
 
         if(acc.containsKey(owner))
             acc.get(owner).add(proxyAccount);

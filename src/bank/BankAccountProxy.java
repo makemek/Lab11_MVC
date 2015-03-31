@@ -16,8 +16,8 @@ public class BankAccountProxy implements BankAccountAuthorizedAccess {
 
     private List<BalanceObserver> observer = new ArrayList<BalanceObserver>();
 
-    public BankAccountProxy(BankAccount account) {
-        this.account = account;
+    public BankAccountProxy(Student owner, TYPE type) {
+        this.account = new BankAccount(owner, type);
     }
 
     @Override

@@ -1,4 +1,6 @@
-package bank;
+package bank.bankAccount;
+
+import bank.bankAccount.BankAccountPublicAccess;
 
 /**
  * Created by Apipol on 28/03/15.

@@ -62,6 +62,6 @@ nb-configuration.xml
 
 
 
-src/bank/BankAccountTest.java
+
 src/bank/test
-src/bank/BankAccountProxyTest.java
+src/bank/bankAccount/BankAccountTest.java

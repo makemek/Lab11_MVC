@@ -1,9 +1,6 @@
-package bank;
+package bank.bankAccount;
 
 import mvc.Student;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Apipol on 28/03/15.

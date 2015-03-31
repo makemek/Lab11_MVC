@@ -1,14 +1,13 @@
 package mvc;
 
-import bank.AccountDb;
-import bank.BankAccountProxy;
+import bank.db.AccountDb;
+import bank.bankAccount.BankAccountProxy;
 import client._1Student_1Admin;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Apipol on 28/03/15.

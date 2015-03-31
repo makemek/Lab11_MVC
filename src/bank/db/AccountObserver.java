@@ -1,4 +1,6 @@
-package bank;
+package bank.db;
+
+import bank.bankAccount.BankAccountProxy;
 
 /**
  * Created by Apipol on 28/03/15.

@@ -1,7 +1,6 @@
 package mvc;
 
-import bank.BankAccountProxy;
-import bank.BankAccountPublicAccess;
+import bank.bankAccount.BankAccountProxy;
 
 import java.awt.event.ActionListener;
 

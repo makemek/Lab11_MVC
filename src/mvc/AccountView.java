@@ -1,9 +1,9 @@
 package mvc;
 
-import bank.AccountObserver;
-import bank.BalanceObserver;
-import bank.BankAccountProxy;
-import bank.BankAccountPublicAccess;
+import bank.db.AccountObserver;
+import bank.bankAccount.BalanceObserver;
+import bank.bankAccount.BankAccountProxy;
+import bank.bankAccount.BankAccountPublicAccess;
 
 /**
  * A GUI View of account details consists of a table of

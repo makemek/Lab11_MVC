@@ -1,5 +1,6 @@
-package bank;
+package bank.db;
 
+import bank.bankAccount.BankAccountProxy;
 import mvc.Student;
 
 import java.util.*;

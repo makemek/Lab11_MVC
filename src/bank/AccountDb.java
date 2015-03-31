@@ -52,4 +52,7 @@ public class AccountDb {
         observer.add(obs);
     }
 
+    public Collection<List<BankAccountProxy>> getAllAccount() {
+        return acc.values();
+    }
 }

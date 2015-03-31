@@ -25,6 +25,7 @@ public class StudentController {
 
         for(BankAccountProxy acc: account)
             acc.addBalanceObserver(view);
+        db.addAccountObserver(view);
 
         view.onWithdrawEvent(new WithdrawEventHandler());
         view.onDepositEvent(new DepositEventHandler());

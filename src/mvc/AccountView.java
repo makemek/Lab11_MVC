@@ -2,6 +2,7 @@ package mvc;
 
 import bank.AccountObserver;
 import bank.BalanceObserver;
+import bank.BankAccountProxy;
 import bank.BankAccountPublicAccess;
 
 /**
@@ -16,18 +17,18 @@ public abstract class AccountView implements BalanceObserver, AccountObserver {
      * Return the selected account from the table
      * @return An interface to access the real bank account
      */
-    public BankAccountPublicAccess getSelectedAccount() {
+    public BankAccountProxy getSelectedAccount() {
         //TODO: Implement this function
         return null;
     }
 
     @Override
-    public void onAccountDelete(BankAccountPublicAccess acc) {
+    public void onAccountDelete(BankAccountProxy acc) {
         // TODO: Implement what to display when account is going to be deleted
     }
 
     @Override
-    public void onAccountCreate(BankAccountPublicAccess acc) {
+    public void onAccountCreate(BankAccountProxy acc) {
         // TODO: Implement what to display when account is going to be created
     }
 

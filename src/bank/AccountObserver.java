@@ -8,11 +8,11 @@ public interface AccountObserver {
      * Notify account deletion before it is deleted
      * @param acc An account to be deleted
      */
-    public void onAccountDelete(BankAccountPublicAccess acc);
+    public void onAccountDelete(BankAccountProxy acc);
 
     /**
      * Notify account creation after it is created
      * @param acc A new account
      */
-    public void onAccountCreate(BankAccountPublicAccess acc);
+    public void onAccountCreate(BankAccountProxy acc);
 }

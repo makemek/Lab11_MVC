@@ -8,7 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by Apipol on 28/03/15.
+ * Interface between account database and student view
+ * Created by MakeMEK on 28/03/15.
  */
 public class StudentController {
 
@@ -47,7 +48,7 @@ public class StudentController {
             BankAccountPublicAccess selected = view.getSelectedAccount();
             BankAccountProxy proxyAccount = findAccount(selected);
 
-            proxyAccount.withdraw(owner, view.getAmount());
+            proxyAccount.withdraw(view.getAmount());
         }
     }
 
@@ -59,7 +60,7 @@ public class StudentController {
             BankAccountProxy proxyAccount = findAccount(selected);
 
             if(proxyAccount != null)
-                proxyAccount.deposit(owner, view.getAmount());
+                proxyAccount.deposit(view.getAmount());
         }
     }
 

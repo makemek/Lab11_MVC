@@ -31,13 +31,16 @@ public class AccountDb {
         return proxyAccount;
     }
 
-    public void deleteAccount(BankAccountProxy account) {
+    public boolean deleteAccount(BankAccountProxy account) {
         List<BankAccountProxy> holdingAccount = acc.get(account.owner());
+
+        if(holdingAccount == null)
+            return false;
 
         for(AccountObserver obs: observer)
             obs.onAccountDelete(account);
 
-        holdingAccount.remove(account);
+        return holdingAccount.remove(account);
     }
 
     public BankAccountProxy[] getAccount(Student owner) {

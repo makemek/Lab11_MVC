@@ -2,10 +2,7 @@ package bank;
 
 import mvc.Student;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * A mock-up database holding bank account
@@ -27,11 +24,21 @@ public class AccountDb {
             acc.put(owner, holdingAccount);
         }
 
-        return new BankAccountProxy(realAccount);
+        BankAccountProxy proxyAccount = new BankAccountProxy(realAccount);
+
+        for(AccountObserver obs: observer)
+            obs.onAccountCreate(proxyAccount);
+
+        return proxyAccount;
     }
 
     public void deleteAccount(BankAccountProxy account) {
+        List<BankAccount> holdingAccount = acc.get(account.owner());
 
+        for(AccountObserver obs: observer)
+            obs.onAccountDelete(account);
+
+        holdingAccount.remove(account.account);
     }
 
     public BankAccountProxy[] getAccount(Student owner) {

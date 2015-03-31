@@ -2,6 +2,7 @@ package mvc;
 
 import bank.AccountDb;
 import bank.BankAccountProxy;
+import client._1Student_1Admin;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,5 +28,26 @@ public class AdminController {
         for(List<BankAccountProxy> holdingAccount: accounts)
             for(BankAccountProxy account: holdingAccount)
                 account.addBalanceObserver(view);
+
+        view.onAccountDeleteEvent(new AccountDeleteEventHandler());
+        view.onAccountCreateEvent(new AccountCreateEventHandler());
+    }
+
+    class AccountCreateEventHandler implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            // assumes that there is 1 student
+            db.createAccount(_1Student_1Admin.student, view.getSelectedType());
+        }
+    }
+
+    class AccountDeleteEventHandler implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            db.deleteAccount(view.getSelectedAccount());
+        }
     }
 }

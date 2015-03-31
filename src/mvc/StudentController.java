@@ -59,8 +59,7 @@ public class StudentController {
             BankAccountPublicAccess selected = view.getSelectedAccount();
             BankAccountProxy proxyAccount = findAccount(selected);
 
-            if(proxyAccount != null)
-                proxyAccount.deposit(view.getAmount());
+            proxyAccount.deposit(view.getAmount());
         }
     }
 

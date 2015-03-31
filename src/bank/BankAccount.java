@@ -11,7 +11,7 @@ import java.util.List;
 class BankAccount implements BankAccountAuthorizedAccess {
 
     @Override
-    public TYPE getType() {
+    public BankAccountProxy.TYPE getType() {
         return type;
     }
 
@@ -30,14 +30,14 @@ class BankAccount implements BankAccountAuthorizedAccess {
         return id;
     }
 
-    public static enum TYPE {SAVING, CURRENT};
+
 
     private int balance;
     private int id;
     private Student owner;
-    private TYPE type;
+    private BankAccountProxy.TYPE type;
 
-    public BankAccount(Student owner, TYPE type) {
+    public BankAccount(Student owner, BankAccountProxy.TYPE type) {
         this.owner = owner;
         this.type = type;
     }

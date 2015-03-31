@@ -13,7 +13,7 @@ public class AccountDb {
     private List<AccountObserver> observer = new ArrayList<AccountObserver>();
     private Map<Student, List<BankAccountProxy>> acc = new HashMap<Student, List<BankAccountProxy>>();
 
-    public BankAccountProxy createAccount(Student owner, BankAccount.TYPE type) {
+    public BankAccountProxy createAccount(Student owner, BankAccountProxy.TYPE type) {
         BankAccount realAccount = new BankAccount(owner, type);
         BankAccountProxy proxyAccount = new BankAccountProxy(realAccount);
 

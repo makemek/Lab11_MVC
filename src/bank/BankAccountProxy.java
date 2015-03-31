@@ -12,6 +12,7 @@ import java.util.List;
 public class BankAccountProxy implements BankAccountAuthorizedAccess {
 
     BankAccount account;
+    public static enum TYPE {SAVING, CURRENT};
 
     private List<BalanceObserver> observer = new ArrayList<BalanceObserver>();
 
@@ -20,7 +21,7 @@ public class BankAccountProxy implements BankAccountAuthorizedAccess {
     }
 
     @Override
-    public BankAccount.TYPE getType() {
+    public TYPE getType() {
         return account.getType();
     }
 

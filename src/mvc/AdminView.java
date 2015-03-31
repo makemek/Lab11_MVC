@@ -1,5 +1,6 @@
 package mvc;
 
+import bank.BankAccountProxy;
 import bank.BankAccountPublicAccess;
 
 import java.awt.event.ActionListener;
@@ -25,5 +26,23 @@ public class AdminView extends AccountView {
      */
     public void onAccountDeleteEvent(ActionListener event) {
         //TODO: Implement adding a listener to a button
+    }
+
+    /**
+     * get the selected account's type from the drop-down box
+     * @return Bank account's type
+     */
+    public BankAccountProxy.TYPE getSelectedType() {
+        throw new UnsupportedOperationException();
+        //TODO: Implement getting data from drop-down box
+    }
+
+    /**
+     * from text view
+     * @return a typed integer indicate id
+     */
+    public int getAccountID() {
+        throw new UnsupportedOperationException();
+        //TODO: Implement getting data from textview
     }
 }

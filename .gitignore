@@ -61,3 +61,7 @@ nb-configuration.xml
 .nb-gradle/
 
 
+
+src/bank/BankAccountTest.java
+src/bank/test
+src/bank/BankAccountProxyTest.java

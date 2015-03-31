@@ -11,20 +11,19 @@ import java.util.*;
 public class AccountDb {
 
     private List<AccountObserver> observer = new ArrayList<AccountObserver>();
-    private Map<Student, List<BankAccount>> acc = new HashMap<Student, List<BankAccount>>();
+    private Map<Student, List<BankAccountProxy>> acc = new HashMap<Student, List<BankAccountProxy>>();
 
     public BankAccountProxy createAccount(Student owner, BankAccount.TYPE type) {
         BankAccount realAccount = new BankAccount(owner, type);
+        BankAccountProxy proxyAccount = new BankAccountProxy(realAccount);
 
         if(acc.containsKey(owner))
-            acc.get(owner).add(realAccount);
+            acc.get(owner).add(proxyAccount);
         else {
-            List<BankAccount> holdingAccount = new ArrayList<BankAccount>();
-            holdingAccount.add(realAccount);
+            List<BankAccountProxy> holdingAccount = new ArrayList<BankAccountProxy>();
+            holdingAccount.add(proxyAccount);
             acc.put(owner, holdingAccount);
         }
-
-        BankAccountProxy proxyAccount = new BankAccountProxy(realAccount);
 
         for(AccountObserver obs: observer)
             obs.onAccountCreate(proxyAccount);
@@ -33,24 +32,20 @@ public class AccountDb {
     }
 
     public void deleteAccount(BankAccountProxy account) {
-        List<BankAccount> holdingAccount = acc.get(account.owner());
+        List<BankAccountProxy> holdingAccount = acc.get(account.owner());
 
         for(AccountObserver obs: observer)
             obs.onAccountDelete(account);
 
-        holdingAccount.remove(account.account);
+        holdingAccount.remove(account);
     }
 
     public BankAccountProxy[] getAccount(Student owner) {
         if(!acc.containsKey(owner))
             return null;
 
-        List<BankAccount> accounts = acc.get(owner);
-        BankAccountProxy[] proxies = new BankAccountProxy[acc.size()];
-        for(int i = 0; i < accounts.size(); ++i)
-            proxies[i] = new BankAccountProxy(accounts.get(i));
-
-        return proxies;
+        List<BankAccountProxy> accounts = acc.get(owner);
+        return accounts.toArray(new BankAccountProxy[accounts.size()]);
     }
 
     public void addAccountObserver(AccountObserver obs) {

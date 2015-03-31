@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Apipol on 28/03/15.
  */
-class BankAccount implements BankAccountPublicAccess {
+class BankAccount implements BankAccountAuthorizedAccess {
 
     @Override
     public TYPE getType() {

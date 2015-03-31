@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A virtual bank account created to limit access from user and increase security
+ * A virtual bank account created to manage account status notification
  * Created by MakeMEK on 28/03/15.
  */
-public class BankAccountProxy implements BankAccountPublicAccess {
+public class BankAccountProxy implements BankAccountAuthorizedAccess {
 
     BankAccount account;
 
@@ -39,18 +39,14 @@ public class BankAccountProxy implements BankAccountPublicAccess {
         return account.id();
     }
 
-    public void deposit(Student owner, int amt) {
-        if(owner.equals(account.owner())) {
-            account.deposit(amt);
-            notifyObservers();
-        }
+    public void deposit(int amt) {
+        account.deposit(amt);
+        notifyObservers();
     }
 
-    public void withdraw(Student owner, int amt) {
-        if(owner.equals(account.owner())) {
-            account.withdraw(amt);
-            notifyObservers();
-        }
+    public void withdraw(int amt) {
+        account.withdraw(amt);
+        notifyObservers();
     }
 
     public void addBalanceObserver(BalanceObserver obs) {
